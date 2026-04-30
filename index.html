@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDPIR - Soutien à la détresse psychologique Ile de la Réunion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        @media (max-width: 640px) {
+            .modal-content { margin: 10% auto; width: 95%; max-height: 85vh; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white font-bold mr-3">S</div>
+                        <span class="text-lg md:text-xl font-bold tracking-tight text-blue-900 leading-tight">SDPIR <br><span class="text-[10px] md:text-xs font-medium uppercase text-blue-600">Réunion</span></span>
+                    </div>
+                </div>
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#accueil" class="text-gray-600 hover:text-blue-600 font-medium transition">Accueil</a>
+                    <a href="#missions" class="text-gray-600 hover:text-blue-600 font-medium transition">Missions</a>
+                    <a href="#institutionnel" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold hover:bg-blue-200 transition">Espace Institutionnel</a>
+                    <a href="#contact" class="px-5 py-2 gradient-bg text-white rounded-full font-semibold shadow-lg hover:opacity-90 transition">Contact</a>
+                </div>
+                <!-- Bouton Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-blue-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu list -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-2 shadow-inner text-center">
+            <a href="#accueil" class="block py-3 text-gray-600 font-medium border-b border-gray-50">Accueil</a>
+            <a href="#missions" class="block py-3 text-gray-600 font-medium border-b border-gray-50">Missions</a>
+            <a href="#institutionnel" class="block py-3 text-blue-700 font-bold bg-blue-50 rounded-lg">Espace Institutionnel</a>
+            <a href="#contact" class="block py-3 text-blue-600 font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="accueil" class="relative bg-white pt-8 pb-16 md:pt-16 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                <div class="text-center lg:text-left lg:col-span-6">
+                    <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs md:text-sm font-semibold mb-4 tracking-wide uppercase">
+                        Soutien à la détresse psychologique Ile de la Réunion
+                    </span>
+                    <h1 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block">Réconcilier le soin</span>
+                        <span class="block text-blue-600">et l'autonomie sociale</span>
+                    </h1>
+                    <p class="mt-6 text-base text-gray-500 sm:text-lg md:mt-8 md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Le SDPIR propose un accompagnement médico-social hybride pour les personnes en fragilité psychique. Nous intervenons "hors les murs" sur toute l'île pour restaurer le lien social.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#institutionnel" class="w-full sm:w-auto flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white gradient-bg shadow-xl hover:shadow-2xl transition">
+                            Dossier de financement
+                        </a>
+                        <a href="#missions" class="w-full sm:w-auto flex items-center justify-center px-8 py-4 border-2 border-blue-100 text-base font-bold rounded-xl text-blue-700 bg-white hover:bg-blue-50 transition">
+                            Nos missions
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0 lg:col-span-6">
+                    <div class="relative mx-auto w-full rounded-2xl shadow-2xl overflow-hidden border-8 border-white">
+                        <img class="w-full h-64 md:h-96 object-cover" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000" alt="Équipe SDPIR Réunion">
+                        <div class="absolute inset-0 bg-blue-900 opacity-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Chiffres Clés -->
+    <section class="bg-blue-900 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center text-white">
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">2 ans</div>
+                    <div class="text-blue-200 text-xs uppercase tracking-widest font-semibold">D'expertise terrain</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">ARS</div>
+                    <div class="text-blue-200 text-xs uppercase tracking-widest font-semibold">Soutien institutionnel</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">90%</div>
+                    <div class="text-blue-200 text-xs uppercase tracking-widest font-semibold">Stabilité post-suivi</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold mb-2">1 pour 5</div>
+                    <div class="text-blue-200 text-xs uppercase tracking-widest font-semibold">Ratio d'efficience social</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espace Institutionnel -->
+    <section id="institutionnel" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Espace Institutionnel</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-500">
+                    SDPIR : Documents stratégiques validés pour la levée de fonds 2026.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Document 1 -->
+                <div class="bg-white rounded-2xl shadow-md p-6 md:p-8 card-hover border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Note d'Intention</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Le projet associatif SDPIR 2026-2028 : vision stratégique et objectifs de développement.</p>
+                    <button onclick="openModal('modal-intention')" class="w-full py-4 px-4 bg-gray-50 text-gray-700 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group cursor-pointer">
+                        <i class="fas fa-eye mr-2 opacity-70 group-hover:opacity-100"></i> Consulter le document
+                    </button>
+                </div>
+
+                <!-- Document 2 -->
+                <div class="bg-white rounded-2xl shadow-md p-6 md:p-8 card-hover border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Modèle Opérationnel</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Le binôme Psycho-Éducatif : méthodologie d'intervention intégrée et stratégie "Aller Vers".</p>
+                    <button onclick="openModal('modal-methode')" class="w-full py-4 px-4 bg-gray-50 text-gray-700 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group cursor-pointer">
+                        <i class="fas fa-eye mr-2 opacity-70 group-hover:opacity-100"></i> Consulter le document
+                    </button>
+                </div>
+
+                <!-- Document 3 -->
+                <div class="bg-white rounded-2xl shadow-md p-6 md:p-8 card-hover border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Budget & Impact</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Plan de financement pluriannuel et analyse du ROI Social pour les institutions.</p>
+                    <button onclick="openModal('modal-budget')" class="w-full py-4 px-4 bg-gray-50 text-gray-700 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group cursor-pointer">
+                        <i class="fas fa-eye mr-2 opacity-70 group-hover:opacity-100"></i> Consulter le document
+                    </button>
+                </div>
+            </div>
+
+            <!-- Plaidoyer Card -->
+            <div class="mt-16 bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                <div class="p-8 sm:p-12 lg:p-16 flex-1">
+                    <span class="text-blue-600 font-bold text-sm tracking-widest uppercase mb-2 block">Pérennisation</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-blue-900 leading-tight">
+                        Soutenir notre Direction de structure
+                    </h2>
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        Notre équipe de direction (Clinique & Opérations) assure la sécurité juridique et la qualité des soins. Financer la structure SDPIR, c'est garantir un maillage solide entre l'hôpital et le domicile à La Réunion.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#contact" class="inline-flex items-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-blue-700 bg-blue-50 hover:bg-blue-100 shadow-sm transition">
+                            Contacter la Direction SDPIR
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 h-64 lg:h-auto relative">
+                    <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800" alt="Direction SDPIR Réunion">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Section 1: Note d'Intention -->
+    <div id="modal-intention" class="modal">
+        <div class="modal-content">
+            <div class="p-6 md:p-10">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-900">Note d'Intention Stratégique (2026-2028)</h2>
+                    <button onclick="closeModal('modal-intention')" class="text-gray-400 hover:text-gray-600 text-2xl"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="prose max-w-none text-gray-700 space-y-4">
+                    <p class="font-bold text-blue-600">Objet : Soutenir la structuration d’un acteur clé de la santé mentale territoriale.</p>
+                    <h3 class="text-xl font-bold border-b pb-2">I. Le Constat de Crise</h3>
+                    <p>À La Réunion, l'offre de soin psychiatrique conventionnelle est saturée. L'isolement géographique et la précarité sociale exacerbent les pathologies. Le SDPIR a identifié un "chaînon manquant" : l'accompagnement entre la sortie d'hospitalisation et le retour à une vie autonome.</p>
+                    <h3 class="text-xl font-bold border-b pb-2">II. Notre Mission de Service Public</h3>
+                    <p>Notre association n'est pas un simple prestataire de services ; elle est une extension du service public de santé. Nous agissons là où les institutions ne peuvent plus aller (au domicile, dans les quartiers isolés).</p>
+                    <h3 class="text-xl font-bold border-b pb-2">III. Ambitions du Plan Triennal</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Structuration RH :</strong> Sortir du modèle de la vacation pour stabiliser une équipe de direction et de terrain.</li>
+                        <li><strong>Maillage Territorial :</strong> Établir des conventions de partenariat avec 100% des CCAS de l'île.</li>
+                        <li><strong>Indépendance Financière :</strong> Diversifier les ressources (40% ARS, 30% Département, 20% FSE, 10% Mécénat).</li>
+                    </ul>
+                </div>
+                <div class="mt-10 pt-6 border-t flex justify-end">
+                    <button onclick="closeModal('modal-intention')" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold">Fermer la lecture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Section 2: Note Méthodologique -->
+    <div id="modal-methode" class="modal">
+        <div class="modal-content">
+            <div class="p-6 md:p-10">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-900">Note Méthodologique : L'Alliance Psycho-Éducative</h2>
+                    <button onclick="closeModal('modal-methode')" class="text-gray-400 hover:text-gray-600 text-2xl"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="prose max-w-none text-gray-700 space-y-4">
+                    <p class="font-bold text-blue-600">Objet : Le Binôme Intégré comme levier de changement.</p>
+                    <h3 class="text-xl font-bold border-b pb-2">I. La Théorie du "Socle de Stabilité"</h3>
+                    <p>Le soin psychologique échoue si le cadre de vie est instable. Notre méthodologie repose sur une action simultanée :</p>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong>Axe Clinique (Direction Clinique/Psy) :</strong> Travail sur le traumatisme, la régulation émotionnelle et la restructuration psychique.</li>
+                        <li><strong>Axe Éducatif (Éducateurs Spécialisés) :</strong> Remobilisation physique, accompagnement administratif, réappropriation des gestes du quotidien.</li>
+                    </ol>
+                    <h3 class="text-xl font-bold border-b pb-2">II. La Stratégie de "l'Aller Vers"</h3>
+                    <p>Nous ne demandons pas au patient de venir à nous ; nous nous rendons à lui. Cette approche permet de capter les populations les plus fragiles, celles qui ont renoncé au soin.</p>
+                    <h3 class="text-xl font-bold border-b pb-2">III. Le Protocole de Suivi</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Entrée :</strong> Orientation par un partenaire (Fiche de liaison).</li>
+                        <li><strong>Diagnostic :</strong> Évaluation croisée systématique Psy + Éduc.</li>
+                        <li><strong>Action :</strong> Plan d'accompagnement individualisé (PAI) révisé chaque trimestre.</li>
+                    </ul>
+                </div>
+                <div class="mt-10 pt-6 border-t flex justify-end">
+                    <button onclick="closeModal('modal-methode')" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold">Fermer la lecture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Section 3: Budget & Impact -->
+    <div id="modal-budget" class="modal">
+        <div class="modal-content">
+            <div class="p-6 md:p-10">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-900">Analyse de l'Impact Social et ROI</h2>
+                    <button onclick="closeModal('modal-budget')" class="text-gray-400 hover:text-gray-600 text-2xl"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="prose max-w-none text-gray-700 space-y-4">
+                    <p class="font-bold text-blue-600">Objet : Valorisation économique de l'action du SDPIR.</p>
+                    <h3 class="text-xl font-bold border-b pb-2">I. Prévention des Coûts Publics</h3>
+                    <p>Chaque prise en charge réussie par le SDPIR évite des coûts majeurs pour la collectivité :</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Évitement Hospitalier :</strong> Une journée en psychiatrie coûte environ 800€. En évitant seulement 10 jours d'hospitalisation par patient et par an, nous économisons 8 000€ par bénéficiaire.</li>
+                        <li><strong>Stabilité du Logement :</strong> Nous prévenons les expulsions locatives (coût social estimé à plus de 15 000€ par ménage).</li>
+                    </ul>
+                    <h3 class="text-xl font-bold border-b pb-2">II. Ratio d'Impact</h3>
+                    <p>Le ratio est de <strong>1:5,3</strong>. Cela signifie que pour 1€ investi dans le SDPIR, la société économise 5,30€ sur les dépenses d'urgence.</p>
+                    <h3 class="text-xl font-bold border-b pb-2">III. Demande de Financement</h3>
+                    <p>Nous sollicitons un financement pérenne pour nos deux postes de direction. Ce "cerveau" est indispensable pour coordonner les éducateurs et assurer le reporting attendu par les autorités.</p>
+                </div>
+                <div class="mt-10 pt-6 border-t flex justify-end">
+                    <button onclick="closeModal('modal-budget')" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold">Fermer la lecture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">SDPIR RÉUNION</h3>
+                    <p class="text-gray-400 font-light italic mb-4">"Soutien à la détresse psychologique Ile de la Réunion"</p>
+                    <p class="text-gray-500 text-sm">Pérenniser l'accompagnement psycho-éducatif pour une insertion durable sur l'île.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 border-l-4 border-blue-600 pl-4">Coordonnées</h3>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i> <span>Saint-Denis / Saint-Pierre, <br>Île de la Réunion</span></li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-500"></i> direction@sdpir.re</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-3 text-blue-500"></i> +262 XX XX XX</li>
+                    </ul>
+                </div>
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <h3 class="text-lg font-semibold mb-6 border-l-4 border-blue-600 pl-4">Réseau Local</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Orientations réservées aux professionnels via notre fiche de liaison sécurisée. Partenariat institutionnel validé par l'ARS.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center text-gray-500 text-xs md:text-sm">
+                <p>&copy; 2026 SDPIR - Soutien à la détresse psychologique Ile de la Réunion. Association Loi 1901 enregistrée en Préfecture.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking links
+        const navLinks = menu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Modal Logic
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent scroll
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto"; // Restore scroll
+        }
+
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+</body>
+</html>
