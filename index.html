@@ -12,7 +12,7 @@
         .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
         .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
         
-        /* Modal Styles */
+        /* Styles des Modales */
         .modal {
             display: none;
             position: fixed;
@@ -37,6 +37,9 @@
         }
         .prose-expert h3 { color: #1e3a8a; border-left: 4px solid #3b82f6; padding-left: 1rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
         .data-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 1rem; margin: 1rem 0; }
+        .step-arrow { position: relative; }
+        .step-arrow::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: #3b82f6; font-weight: bold; }
+        @media (max-width: 768px) { .step-arrow::after { content: '↓'; right: auto; left: 50%; bottom: -20px; top: auto; transform: translateX(-50%); } }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -72,7 +75,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- En-tête -->
     <header id="accueil" class="relative bg-white pt-8 pb-16 md:pt-16 md:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
@@ -85,14 +88,11 @@
                         <span class="block text-blue-600">et l'autonomie sociale</span>
                     </h1>
                     <p class="mt-6 text-base text-gray-500 sm:text-lg md:mt-8 md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        L'association <strong class="text-gray-900">Soutien à la détresse psychologique Ile de la Réunion</strong> propose un accompagnement médico-social hybride pour les citoyens en rupture de parcours. Nous intervenons "hors les murs" sur toute l'île pour restaurer le lien social et l'autonomie.
+                        L'association <strong class="text-gray-900">Soutien à la détresse psychologique Ile de la Réunion</strong> propose un accompagnement médico-social hybride pour les citoyens en rupture de parcours. Nous intervenons "hors les murs" sur toute l'île.
                     </p>
                     <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                         <a href="#institutionnel" class="w-full sm:w-auto flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white gradient-bg shadow-xl hover:shadow-2xl transition">
-                            Consulter le Livre Blanc
-                        </a>
-                        <a href="#missions" class="w-full sm:w-auto flex items-center justify-center px-8 py-4 border-2 border-blue-100 text-base font-bold rounded-xl text-blue-700 bg-white hover:bg-blue-50 transition">
-                            Nos missions territoriales
+                            Consulter le Dossier Expert
                         </a>
                     </div>
                 </div>
@@ -109,41 +109,21 @@
     <section id="missions" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl uppercase tracking-tight">Cadre d'Intervention et Missions Régaliennes</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-500">Une expertise de proximité pour la résilience territoriale.</p>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl uppercase tracking-tight">Cadre d'Intervention et Missions</h2>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="flex group">
-                    <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg gradient-bg text-white shadow-lg"><i class="fas fa-balance-scale"></i></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg gradient-bg text-white"><i class="fas fa-balance-scale"></i></div>
                     <div class="ml-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Accès au Droit et Citoyenneté</h3>
-                        <p class="text-blue-600 text-xs font-bold uppercase mb-2">Enjeu d'Efficience</p>
-                        <p class="text-gray-600 leading-relaxed text-sm">Sécurisation du socle administratif (MDPH, logement) pour lever les barrières bureaucratiques.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Accès au Droit</h3>
+                        <p class="text-gray-600 text-sm">Sécurisation du socle administratif (MDPH, logement) pour lever les barrières.</p>
                     </div>
                 </div>
-                <div class="flex group">
-                    <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg gradient-bg text-white shadow-lg"><i class="fas fa-ambulance"></i></div>
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg gradient-bg text-white"><i class="fas fa-ambulance"></i></div>
                     <div class="ml-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Le "Mobile-Soin" (Aller-Vers)</h3>
-                        <p class="text-blue-600 text-xs font-bold uppercase mb-2">Enjeu d'Équité</p>
-                        <p class="text-gray-600 leading-relaxed text-sm">Unité mobile rétablissant le contact dans les zones enclavées pour prévenir les ruptures critiques.</p>
-                    </div>
-                </div>
-                <div class="flex group">
-                    <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg gradient-bg text-white shadow-lg"><i class="fas fa-sync-alt"></i></div>
-                    <div class="ml-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sécurisation des Parcours</h3>
-                        <p class="text-blue-600 text-xs font-bold uppercase mb-2">Enjeu de Fluidité</p>
-                        <p class="text-gray-600 leading-relaxed text-sm">Pivot stratégique entre le secteur sanitaire et social pour garantir la transition post-hospitalière.</p>
-                    </div>
-                </div>
-                <div class="flex group">
-                    <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg gradient-bg text-white shadow-lg"><i class="fas fa-walking"></i></div>
-                    <div class="ml-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Médiation et Insertion</h3>
-                        <p class="text-blue-600 text-xs font-bold uppercase mb-2">Enjeu d'Autonomie</p>
-                        <p class="text-gray-600 leading-relaxed text-sm">Passerelles vers le droit commun et l'activité économique pour favoriser la citoyenneté active.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Unité Mobile</h3>
+                        <p class="text-gray-600 text-sm">Action "Aller-Vers" pour prévenir les ruptures critiques en zone isolée.</p>
                     </div>
                 </div>
             </div>
@@ -155,187 +135,174 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Dossier Institutionnel Stratégique</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Plaidoyer pour une structuration pérenne de l'offre médico-sociale.</p>
+                <p class="mt-4 text-gray-500 italic">Analyse complète pour les décideurs et partenaires publics.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Carte 1 : Note d'Intention -->
                 <div class="bg-white rounded-2xl shadow-md p-8 card-hover border-t-4 border-blue-600">
                     <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl"><i class="fas fa-file-invoice"></i></div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Note d'Intention</h3>
-                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Projet 2026-2028 : Vision stratégique et objectifs de structuration pérenne.</p>
-                    <button onclick="openModal('modal-intention')" class="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center">
-                        Consulter le document
-                    </button>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Vision stratégique 2026-2028 et objectifs de structuration.</p>
+                    <button onclick="openModal('modal-intention')" class="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">Consulter</button>
                 </div>
-                <div class="bg-white rounded-2xl shadow-md p-8 card-hover border-t-4 border-blue-600 opacity-60">
+                <!-- Carte 2 : Modèle Opérationnel -->
+                <div class="bg-white rounded-2xl shadow-md p-8 card-hover border-t-4 border-blue-600">
                     <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl"><i class="fas fa-project-diagram"></i></div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Modèle Opérationnel</h3>
-                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">L'Alliance Psycho-Éducative : méthodologie d'intervention in situ. (En rédaction)</p>
-                    <button disabled class="w-full py-3 px-4 bg-gray-200 text-gray-500 rounded-xl font-bold cursor-not-allowed">Prochainement</button>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">L'Alliance Psycho-Éducative : méthodologie d'intervention.</p>
+                    <button onclick="openModal('modal-operationnel')" class="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">Consulter</button>
                 </div>
-                <div class="bg-white rounded-2xl shadow-md p-8 card-hover border-t-4 border-blue-600 opacity-60">
+                <!-- Carte 3 : Impact & ROI (ACTIF) -->
+                <div class="bg-white rounded-2xl shadow-md p-8 card-hover border-t-4 border-blue-600">
                     <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 text-2xl"><i class="fas fa-chart-pie"></i></div>
                     <h3 class="text-xl font-bold mb-3 text-gray-900">Impact & ROI Social</h3>
-                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Analyse des économies générées pour les institutions. (En rédaction)</p>
-                    <button disabled class="w-full py-3 px-4 bg-gray-200 text-gray-500 rounded-xl font-bold cursor-not-allowed">Prochainement</button>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">Analyse des économies générées pour les institutions.</p>
+                    <button onclick="openModal('modal-roi')" class="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">Consulter</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal Note d'Intention (CONTENU EXPERT) -->
+    <!-- Modal 1 : Note d'Intention -->
     <div id="modal-intention" class="modal">
         <div class="modal-content">
-            <div class="p-8 md:p-12">
+            <div class="p-8 md:p-12 text-left">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-3xl font-bold text-blue-900 uppercase">📑 Livre Blanc : Horizon 2028</h2>
+                    <button onclick="closeModal('modal-intention')" class="text-gray-400"><i class="fas fa-times text-3xl"></i></button>
+                </div>
+                <div class="prose-expert">
+                    <p class="italic text-gray-500 border-l-4 pl-4 mb-8">Soutien à la détresse psychologique Ile de la Réunion (SDPIR)</p>
+                    <h3>I. POSITIONNEMENT INSTITUTIONNEL</h3>
+                    <p>Le SDPIR est l'opérateur pivot du "Dernier Kilomètre" à La Réunion, garantissant la continuité là où l'hôpital sature.</p>
+                    <div class="data-box mt-4">
+                        <h4 class="text-xs font-bold uppercase text-blue-600 mb-4 tracking-widest text-center">Indicateurs de Tension</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                            <div class="p-4 bg-white rounded-xl shadow-sm"><div class="text-2xl font-bold text-red-600">42%</div><div class="text-[10px] uppercase">Ruptures Post-Hosp</div></div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm"><div class="text-2xl font-bold text-orange-600">14 mois</div><div class="text-[10px] uppercase">Attente Droits</div></div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm"><div class="text-2xl font-bold text-blue-600">108%</div><div class="text-[10px] uppercase">Occupation Lits</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 flex justify-end"><button onclick="closeModal('modal-intention')" class="px-8 py-3 bg-gray-100 rounded-xl font-bold">Fermer</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 : Modèle Opérationnel -->
+    <div id="modal-operationnel" class="modal">
+        <div class="modal-content">
+            <div class="p-8 md:p-12 text-left">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-3xl font-bold text-blue-900 uppercase">📂 Alliance Psycho-Éducative</h2>
+                    <button onclick="closeModal('modal-operationnel')" class="text-gray-400"><i class="fas fa-times text-3xl"></i></button>
+                </div>
+                <div class="prose-expert">
+                    <h3>I. LE DUAL-TRACK MÉTHODOLOGIQUE</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                        <div class="p-4 bg-blue-900 text-white rounded-2xl"><h5 class="font-bold mb-2">Levier Clinique</h5><p class="text-xs">Stabilisation psychique et régulation émotionnelle in situ.</p></div>
+                        <div class="p-4 bg-blue-600 text-white rounded-2xl"><h5 class="font-bold mb-2">Levier Éducatif</h5><p class="text-xs">Réappropriation des droits et insertion sociale active.</p></div>
+                    </div>
+                </div>
+                <div class="mt-10 flex justify-end"><button onclick="closeModal('modal-operationnel')" class="px-8 py-3 bg-gray-100 rounded-xl font-bold">Fermer</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 : Impact & ROI Social (NOUVEAU) -->
+    <div id="modal-roi" class="modal">
+        <div class="modal-content">
+            <div class="p-8 md:p-12 text-left">
                 <div class="flex justify-between items-start mb-8">
                     <div>
-                        <h2 class="text-3xl font-bold text-blue-900">📑 LIVRE BLANC STRATÉGIQUE : HORIZON 2028</h2>
-                        <p class="text-blue-600 font-semibold mt-2">Soutien à la détresse psychologique Ile de la Réunion (SDPIR)</p>
+                        <h2 class="text-3xl font-bold text-blue-900 uppercase tracking-tight">📊 Impact & ROI Social (SROI)</h2>
+                        <p class="text-blue-600 font-semibold mt-2">Démonstration de l'efficience économique du modèle SDPIR</p>
                     </div>
-                    <button onclick="closeModal('modal-intention')" class="text-gray-400 hover:text-gray-900 transition"><i class="fas fa-times text-3xl"></i></button>
+                    <button onclick="closeModal('modal-roi')" class="text-gray-400"><i class="fas fa-times text-3xl"></i></button>
                 </div>
 
-                <div class="prose-expert text-gray-700 leading-relaxed">
-                    <p class="italic text-lg text-gray-500 border-l-4 border-gray-200 pl-4 mb-8">Plaidoyer pour une structuration médico-sociale pérenne et efficiente.</p>
-
-                    <h3>I. POSITIONNEMENT INSTITUTIONNEL : L'OPÉRATEUR DE CONFIANCE</h3>
-                    <p>Le paysage de la santé mentale à La Réunion subit une pression structurelle sans précédent. Le SDPIR se positionne comme <strong>l'opérateur pivot du "Dernier Kilomètre"</strong>. Notre expertise réside dans la capacité à maintenir une continuité de soins là où les structures hospitalières saturent.</p>
+                <div class="prose-expert text-gray-700">
+                    <h3>I. LE POSTULAT DE L'EFFICIENCE</h3>
+                    <p>Chaque euro investi dans le SDPIR permet d'économiser potentiellement <strong>16 euros</strong> de frais d'hospitalisation conventionnelle.</p>
                     
-                    <div class="data-box">
-                        <h4 class="font-bold text-blue-800 mb-3 uppercase text-xs tracking-widest">📈 Indicateurs de Tension Territoriale</h4>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm">
-                                <thead>
-                                    <tr class="border-b border-gray-200">
-                                        <th class="text-left py-2">Indicateur</th>
-                                        <th class="text-center py-2">État Actuel</th>
-                                        <th class="text-center py-2">Impact SDPIR</th>
-                                        <th class="text-right py-2">Statut</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b">
-                                        <td class="py-3">Taux de rupture post-Hosp</td>
-                                        <td class="text-center font-semibold">42%</td>
-                                        <td class="text-center text-blue-600 font-bold">< 8%</td>
-                                        <td class="text-right text-green-500">🟢</td>
-                                    </tr>
-                                    <tr class="border-b">
-                                        <td class="py-3">Accès aux droits sociaux</td>
-                                        <td class="text-center font-semibold">14 mois</td>
-                                        <td class="text-center text-blue-600 font-bold">< 3 mois</td>
-                                        <td class="text-right text-orange-500">🟠</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3">Occupation lits Psy</td>
-                                        <td class="text-center font-semibold">108%</td>
-                                        <td class="text-center text-blue-600 font-bold">-15%</td>
-                                        <td class="text-right text-blue-500">🔵</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <h3>II. ANALYSE DE L'IMPACT ÉCONOMIQUE (ROI SOCIAL)</h3>
-                    <p>L'efficience budgétaire est au cœur de notre stratégie de pérennisation. Notre modèle "Hors les murs" réduit drastiquement les coûts de prise en charge.</p>
-                    
-                    <div class="mt-6 space-y-4">
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-1 uppercase"><span>Hospitalisation Complète (850€/j)</span></div>
-                            <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
-                                <div class="bg-red-500 h-full w-full"></div>
+                    <div class="data-box mt-6">
+                        <h4 class="text-xs font-bold text-blue-800 mb-4 uppercase tracking-widest">Comparatif des Coûts Journaliers (Réunion)</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-[10px] font-bold mb-1 uppercase text-red-600"><span>Urgences + Observation (1 200 €)</span></div>
+                                <div class="w-full bg-gray-200 h-3 rounded-full"><div class="bg-red-500 h-full w-full"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[10px] font-bold mb-1 uppercase"><span>Hosp. Psychiatrie (850 €)</span></div>
+                                <div class="w-full bg-gray-200 h-3 rounded-full"><div class="bg-orange-500 h-full w-[70%]"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[10px] font-bold mb-1 uppercase text-blue-600"><span>SDPIR In Situ (52 €)</span></div>
+                                <div class="w-full bg-gray-200 h-3 rounded-full"><div class="bg-blue-600 h-full w-[5%]"></div></div>
                             </div>
                         </div>
+                        <p class="text-[10px] mt-4 italic text-gray-400 text-center">Source: Analyse Comparative Coûts de Santé 2026</p>
+                    </div>
+
+                    <h3>II. IMPACT PRÉVISIONNEL (COHORTE 100 USAGERS)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
                         <div>
-                            <div class="flex justify-between text-xs font-bold mb-1 uppercase"><span>Hospitalisation de Jour (450€/j)</span></div>
-                            <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
-                                <div class="bg-orange-400 h-full w-[53%]"></div>
+                            <h5 class="font-bold text-sm mb-4">Recours aux soins d'urgence (-88%)</h5>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-[10px]"><span class="w-20">Mois 0</span> <div class="flex-1 bg-blue-100 h-4 rounded"><div class="bg-blue-900 h-full w-full"></div></div> <span class="ml-2">100%</span></div>
+                                <div class="flex items-center text-[10px]"><span class="w-20">Mois 6</span> <div class="flex-1 bg-blue-100 h-4 rounded"><div class="bg-blue-600 h-full w-[30%]"></div></div> <span class="ml-2">30%</span></div>
+                                <div class="flex items-center text-[10px]"><span class="w-20">Mois 12</span> <div class="flex-1 bg-blue-100 h-4 rounded"><div class="bg-blue-400 h-full w-[12%]"></div></div> <span class="ml-2">12%</span></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-1 uppercase text-blue-600"><span>Accompagnement SDPIR (52€/j)</span></div>
-                            <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
-                                <div class="bg-blue-600 h-full w-[6%]"></div>
-                            </div>
+                        <div class="p-6 bg-blue-50 rounded-2xl flex flex-col justify-center text-center">
+                            <h5 class="font-bold text-sm mb-2">Maintien dans l'habitat</h5>
+                            <div class="text-4xl font-extrabold text-blue-900">94 %</div>
+                            <p class="text-[10px] uppercase text-blue-600 font-bold mt-2">Avec suivi SDPIR</p>
+                            <p class="text-[10px] text-gray-400 mt-1 italic">Vs 48% hors dispositif</p>
                         </div>
                     </div>
 
-                    <div class="data-box mt-8 border-l-4 border-blue-600">
-                        <h4 class="font-bold text-blue-900 mb-2">💰 Économies Institutionnelles Projetées (2026-2028)</h4>
-                        <ul class="list-none space-y-2 text-sm">
-                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> <strong>3,2 M€</strong> d'économies directes pour l'Assurance Maladie.</li>
-                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> <strong>450 K€</strong> d'économies sociales (collectivités).</li>
-                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> <strong>180 K€</strong> de réduction des frais d'urgence (SDIS/Police).</li>
-                        </ul>
-                    </div>
-
-                    <h3>III. ARCHITECTURE DE L'ALLIANCE PSYCHO-ÉDUCATIVE</h3>
-                    <p>La structuration de notre direction repose sur un binôme expert garantissant la sécurité et la conformité :</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div class="p-4 bg-blue-50 rounded-xl">
-                            <h5 class="font-bold text-blue-900 mb-2">Pôle Clinique</h5>
-                            <p class="text-xs">Supervision des pratiques, analyse de la symptomatologie et sécurisation du cadre thérapeutique mobile.</p>
-                        </div>
-                        <div class="p-4 bg-blue-50 rounded-xl">
-                            <h5 class="font-bold text-blue-900 mb-2">Pôle Opérationnel</h5>
-                            <p class="text-xs">Ingénierie de projets, partenariats territoriaux, conformité budgétaire et reporting.</p>
+                    <h3>III. SYNTHÈSE DES ÉCONOMIES DIRECTES</h3>
+                    <div class="data-box border-l-4 border-green-500">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div><div class="text-2xl font-bold text-gray-900">3,2 M€</div><div class="text-[10px] font-bold text-green-600 uppercase">Assurance Maladie</div></div>
+                            <div><div class="text-2xl font-bold text-gray-900">450 K€</div><div class="text-[10px] font-bold text-green-600 uppercase">Coll. Locales</div></div>
+                            <div><div class="text-2xl font-bold text-gray-900">180 K€</div><div class="text-[10px] font-bold text-green-600 uppercase">Services d'Urgence</div></div>
                         </div>
                     </div>
 
-                    <h3>IV. FEUILLE DE ROUTE OPÉRATIONNELLE</h3>
-                    <div class="bg-gray-900 text-white p-6 rounded-2xl mt-4 font-mono text-sm leading-relaxed">
-                        <div class="mb-2"><span class="text-blue-400">[Q3 2026]</span> > STRUCTURATION : Stabilisation Direction</div>
-                        <div class="mb-2"><span class="text-green-400">[Q1 2027]</span> > EXPANSION : Déploiement "Hauts de l'île"</div>
-                        <div class="mb-2"><span class="text-yellow-400">[Q3 2027]</span> > DIGITALISATION : Système d'Information Patient</div>
-                        <div><span class="text-purple-400">[Q2 2028]</span> > CERTIFICATION : Label Qualité Médico-Social</div>
-                    </div>
-
-                    <div class="mt-12 text-center p-8 bg-blue-900 text-white rounded-2xl shadow-inner">
-                        <p class="text-xl font-bold mb-4">"Soutenir la direction du SDPIR, c'est investir dans un système de santé résilient pour La Réunion."</p>
-                        <p class="text-xs opacity-70 italic">Document à usage institutionnel exclusif - Direction SDPIR</p>
+                    <div class="mt-12 bg-gray-900 text-white p-8 rounded-2xl text-center relative">
+                        <p class="text-xl font-bold mb-4">Investissement Annuel : 1.9 M€ | Valeur Créée : 4.2 M€</p>
+                        <div class="inline-block py-2 px-6 bg-green-600 rounded-full font-bold uppercase tracking-widest text-xs">Bilan Net : + 2.3 M€ pour La Réunion</div>
                     </div>
                 </div>
 
                 <div class="mt-10 flex justify-end">
-                    <button onclick="closeModal('modal-intention')" class="px-8 py-3 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition">Fermer la lecture</button>
+                    <button onclick="closeModal('modal-roi')" class="px-8 py-3 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition">Quitter</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 tracking-tight uppercase">SDPIR RÉUNION</h3>
-                    <p class="text-gray-400 text-sm font-light italic mb-4">"Soutien à la détresse psychologique Ile de la Réunion"</p>
-                    <p class="text-gray-500 text-xs leading-relaxed italic">Association Loi 1901 engagée pour la résilience et le rétablissement citoyen sur l'ensemble du territoire réunionnais.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-6 border-l-4 border-blue-600 pl-4">Coordonnées</h3>
-                    <ul class="text-gray-400 space-y-3 text-sm">
-                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i> <span>Île de la Réunion</span></li>
-                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-500"></i> direction@sdpir.re</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-6 border-l-4 border-blue-600 pl-4">Expertise</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Dispositif certifié pour l'accompagnement des parcours complexes en milieu ordinaire.</p>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 mt-8 text-center text-gray-500 text-[10px] md:text-xs">
-                <p>&copy; 2026 SDPIR - Soutien à la détresse psychologique Ile de la Réunion. Tous droits réservés.</p>
+    <!-- Pied de page -->
+    <footer id="contact" class="bg-gray-900 text-white pt-12 pb-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm font-bold uppercase tracking-widest text-blue-500 mb-2">SDPIR RÉUNION</p>
+            <p class="text-gray-500 text-[10px] mb-6">Soutien à la détresse psychologique Ile de la Réunion - Association Loi 1901</p>
+            <div class="text-[10px] text-gray-600 border-t border-gray-800 pt-6">
+                &copy; 2026 SDPIR. Document stratégique à usage institutionnel.
             </div>
         </div>
     </footer>
 
     <script>
+        // Menu Mobile
         const btn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
 
+        // Modales
         function openModal(id) {
             document.getElementById(id).style.display = "block";
             document.body.style.overflow = "hidden";
